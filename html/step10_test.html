@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>step10_button.html</title>
+<style>
+    .button
+    {
+        color : black;
+        padding: 15px 32px;
+        background-color: pink;
+        border: 2px solid red;
+        border-radius: 10px;
+        text-align: center;
+        margin: 4px 2px;
+        cursor: pointer;
+    }
+    .container
+    {
+        text-align: center;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+</style>
+</head>
+<body>
+    <h1>종합적인 test</h1>
+    
+    <h2>링크목록</h2>
+    <ul>
+        <li><a href="https://google.com" title="google.com" target="_blank"><img src="https://www.finsmes.com/wp-content/uploads/2016/09/google-300x169.jpg" width="100"></a></li>
+        <li><a href="https://github.com/" title="github.com" target="_blank"><img src="https://miro.medium.com/max/700/1*hWwkLaG9nc98xK00q2XRfw.jpeg" width="100"></a></li>
+        <li><a href="http://14.63.164.99/student.html" title="http://14.63.164.99/student.html" target="n_blank">공부방 바로가기</a></li>
+    </ul>
+
+
+    <form action="login.jsp">
+        <table>
+            <tr>
+                <td><label for="account"> 아이디 </label></td>
+                <td><input type="text" name="account" id="account"></td>
+            </tr>
+            <tr>
+                <td><label for="password">비밀번호</label></td>
+                <td><input type="password" name="password" id="password"></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td><button class="button" type="submit">로그인</button></td>
+            </tr>
+        </table>
+        <br/>
+        <br/>
+        <fieldset>
+            <legend>성별 정보 선택</legend>
+            <label>
+                <input type="radio" name="gender" value="man"> 남자
+            </label>
+            <label>
+                <input type="radio" name="gender" value="woman"> 여자
+            </label>
+        </fieldset>
+        <fieldset>
+            <legend>취미 정보 선택</legend>
+            <label>
+                <input type="checkbox" name="hobby" value="piano"> 피아노
+            </label>
+            <label>
+                <input type="checkbox" name="hobby" value="soccer"> 축구
+            </label>
+            <label>
+                <input type="checkbox" name="hobby" value="billard"> 당구
+            </label>
+            <label>
+                <input type="checkbox" name="hobby" value="soju"> 소주
+            </label>
+        </fieldset>
+        <label for="birth">생년월일 선택</label>
+        <select name="birth" id="birth">
+            <optgroup label="1990~">
+                <option>선택</option>
+                <option>1990</option>
+                <option>1991</option>
+                <option>1992</option>
+                <option>1993</option>
+                <option>1994</option>
+                <option>1995</option>
+                <option>1996</option>
+                <option>1997</option>
+                <option>1998</option>
+                <option>1999</option>
+            </optgroup>
+        </select>
+        <br/>
+        <label for="comment">문제사항</label>
+        <br/>
+        <textarea name="comment" id="comment" cols="30" rows="10">문제사항을 적어주세요</textarea>
+    </form>
+
+    <br/>
+    <div class="container">
+       <p> 이 page는 test page 입니다. </p>
+       <p> 10/28(수) - table, form, anchor 를 배웠네요. 
+           fieldset-legend (checkbox or ratio 의 추가정보를 주기위해) / select-option / select-optgroup-option
+       </p>
+    </div>
+</body>
+</html>
