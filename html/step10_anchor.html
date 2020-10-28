@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>step10_anchor.html</title>
+    <style>
+        /* 가운데 정렬을 위한 container class */
+        .container
+        {
+            width: 768px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .contentstable
+        {
+            width: 200px;
+        }
+    </style>
+</head>
+<body>
+    <!-- emmet의 기능 주소:emmet.io 가서 찾아쓸것 -->
+    <!-- .-> class (div.class명 + tab) #-> ID  div#ID + tab -->
+    <div class="container">
+        <h1>a(anchor) 요소는 하이퍼링크, 책갈피, javascrpit 등을 수행할 때 사용한다.</h1>
+    </div>
+    <div class="contentstable">
+        <ol>
+            <li><a href="hello.html" target="_blank" title="나오지롱">hello.html로 가기</a></li>
+            <!-- 현재 위치를 기준으로 이동하는 상대경로 이동, 즉 html파일안에서 찾는다. -->
+            <li><a href="http://14.63.164.99/student.html" target="_blank" title="공부방 바로가기"><img src="images/1.jpg" alt="name" width="50" height="50"></a></li>
+            <!-- 웹에서의 절대 경로 이동 -->
+            <li><a href="C:\acorn2021\visual_work\html\hello.html" target="_blank">hello.html로 가기</a></li>
+            <!-- 파일 시스템에서의 절대 경로 이동 -->
+            <li><a href="https://naver.com" target="_blank">naver로 가기</a></li>
+            <!-- 웹에서의 절대 경로 이동 -->
+        </ol>
+    </div>
+</body>
+</html>
