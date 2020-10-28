@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>step09_form.html</title>
+</head>
+<body>
+    <h1>form 요소 작성하기</h1>
+
+    <!-- action에 명시한 url로 submit 누르면 이동-->
+    <form action="">
+        <label for="email">이메일</label> <br>
+        <input type="text" id="email" name="email"> <br>
+        <!-- for 와 id가 같아야한다. 그래야 input의 label로 작용을 한다.-->
+        <!-- name은 추후 server에서 읽어낼 때 필요함-->
+        <label for="password">비밀번호</label> <br>
+        <input type="password" id="password" name="password"> <br><br>
+        <!--input type password로 하면 안보인다.-->
+        <button type="submit">로그인</button>
+        <input type="checkbox">
+    </form>
+    
+</body>
+</html>
