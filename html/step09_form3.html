@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>step09_form3.html</title>
+    <style>
+        div{
+            /* 폭을 결정한 뒤, 좌우 margin을 auto로 하면 가운데 정렬이 된다. */
+            width: 768px;
+            background-color:pink;
+            margin-left: auto;
+            margin-right: auto;
+            text-align: center;
+        }
+        .container{
+            width: 768px;
+            background-color: rgb(4, 152, 252);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        클래스 속성의 값이 container인 div 입니다.
+    </div>
+    
+    <div>
+        그냥 div 입니다.
+    </div>
+    <div class="container">
+        <h1>TABLE 요소를 이용해서 FORM 요소의 줄 맞추기</h1>
+    <form action="login.jsp">
+        <table>
+            <tr>
+                <td><label for="email">이메일</label></td>
+                <td><input type="text" name="email" id="email"></td>
+            </tr>
+            <tr>
+                <td><label for="password">비밀번호</label></td>
+                <td><input type="password" name="password" id="password"></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td><button type="submit">로그인</button></td>
+            </tr>
+        </table>
+    </form>
+    </div>
+</body>
+</html>
