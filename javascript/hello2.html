@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>hello2.html</title>
+</head>
+<body>
+    <p id="pp" onmouseover="onOver();" onmouseout="onOut();">마우스를 올려보셈</p>
+    <img id="img1" src="images/rabbit_1.png" alt="엽기토끼" style="cursor: pointer;" onclick="changeImage();">
+    <div>
+        <img id="img2" src="images/run1.png" onclick="a();" style="display: inline;" >
+        <button id="btn1" style="display: none;" onclick="b()" > 가즈아 ~ </button>
+    </div>
+    <script>
+        function a()
+        {
+            document.querySelector("#img2").style.display="none";
+            document.querySelector("#btn1").style.display="inline"
+            //document.querySelector("#img2").setAttribute("style", "display: none");
+            //document.querySelector("#btn1").setAttribute("style","display: inline");
+        }
+        function b()
+        {
+            location.href="https://daum.net"
+        }
+
+        function onOver()
+        {
+            document.querySelector("#pp").innerText = "마우스 올렸네"
+            document.querySelector("#pp").style.color = "red";
+        }
+
+        function onOut()
+        {
+            document.querySelector("#pp").innerText = "마우스 올려보셈"
+            document.querySelector("#pp").style.color = "black";
+        }
+        function changeImage()
+        {
+            document.querySelector("#img1").setAttribute("src","images/rabbit2.png");
+        }
+    </script>
+    
+</body>
+</html>

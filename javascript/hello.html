@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>hello.html</title>
+</head>
+<body>
+    <!-- onclick="여기는 javascript 영역이다." -->
+    <p id="one" style="cursor: pointer;"
+        onclick="document.querySelector('#one').innerText='안녕히 가세요.'">
+    안녕하세요</p>
+    <p id="two" 
+        onmouseover="document.querySelector('#two').innerText='김구라'">어쩌구...</p>
+    <p id="three" onmouseover="a();">저쩌구...</p>
+
+    <button id="btn" onclick="change(value)" value="">눌러보셈</button>
+    <p id="result">버튼 click 해봐</p>
+    <script>
+        function a()
+        {
+            document.querySelector("#three").innerText="해골";
+            document.querySelector("#three").style.color="red";
+            document.querySelector("#three").style.fontSize="100px";
+
+        }
+        function change(value)
+        {
+            if(value==0)
+            {
+                document.querySelector("#result").innerText="눌럿네?";
+                document.querySelector("#result").setAttribute(value,"1");
+            }
+            else
+            {
+                document.querySelector("#result").innerText="다시 눌러봐";
+                document.querySelector("#result").setAttribute(value,"0");
+            }
+
+        }
+       
+    </script>
+</body>
+</html>
