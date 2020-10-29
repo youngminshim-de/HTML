@@ -5,6 +5,31 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>step10_button.html</title>
 <style>
+    .item1{grid-area: header;}
+    .item2{grid-area: menu;}
+    .item3{grid-area: main;}
+    .item4{grid-area: right;}
+    .item5{grid-area: footer;}
+
+    .grid-container
+    {
+        display: grid;
+        grid-template-areas:
+        'header header header header header header '
+        'menu main main main right right'
+        'menu footer footer footer footer footer';
+        grid-gap: 10px;
+        background-color: #2196F3;
+        padding: 10px;
+    }
+    .grid-container > div
+    {
+        background-color:red;
+        text-align: center;
+        padding: 20px 0;
+        font-size: 30px;
+
+    }
     .button
     {
         color : black;
@@ -26,6 +51,14 @@
 </style>
 </head>
 <body>
+    <h1>Grid Layout</h1>
+    <div class="grid-container">
+        <div class="item1">헤더</div>
+        <div class="item2">menu</div>
+        <div class="item3">main</div>
+        <div class="item4">right</div>
+        <div class="item5">footer</div>
+    </div>
     <h1>종합적인 test</h1>
     
     <h2>링크목록</h2>
