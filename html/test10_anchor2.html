@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>step10_anchor2.html</title>
+    <style>
+        .container
+        {
+            width: 90%;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .spacer
+        {
+            height: 500px;
+            background-color: yellow;
+        }
+    </style>
+</head>
+<body>
+    <script>
+        alert('page가 로딩중...');
+    </script>
+
+    <div class="container">
+        <h1>anchor 의 다른 기능</h1>
+        <ul>
+             <!--책갈피 기능-->
+            <li><a href="#one">one</a></li>
+            <li><a href="#two">two</a></li>
+            <li><a href="#three">three</a></li>
+            <!-- javascript 실행-->
+            <li><a href="javascript: alert('warning!')">here</a></li>
+            <!-- 전화 걸기 in mobile-->
+            <li><a href="tel:010-6698-6965">전화걸기</a></li>
+            <!--이메일 쓰기 in mobile-->>
+            <li><a href="mailto:dudals6965@hanmail.net">이메일 쓰기</a></li>
+        </ul>
+
+    <div class="spacer"></div>
+    <p id="one">one 입니다.</p>
+    <div class="spacer"></div>
+    <p id="two">two 입니다.</p>
+    <div class="spacer"></div>
+    <p id="three">three 입니다.</p>
+    </div>
+
+    
+</body>
+</html>

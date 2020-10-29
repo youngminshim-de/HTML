@@ -33,6 +33,18 @@
         <li><a href="https://google.com" title="google.com" target="_blank"><img src="https://www.finsmes.com/wp-content/uploads/2016/09/google-300x169.jpg" width="100"></a></li>
         <li><a href="https://github.com/" title="github.com" target="_blank"><img src="https://miro.medium.com/max/700/1*hWwkLaG9nc98xK00q2XRfw.jpeg" width="100"></a></li>
         <li><a href="http://14.63.164.99/student.html" title="http://14.63.164.99/student.html" target="n_blank">공부방 바로가기</a></li>
+         <!--inline 요소는 원래 block 요소를 자식요소로 가질 수 없다.
+                 단 a 요소만 예외적으로 div 같은 block 요소를 자식요소로
+                 가질 수 있다. 즉 <span> <div></div> </span> 는 안됨.
+        -->
+        <li>
+            <a href="http://14.63.164.99"">
+                <div>
+                    <h3>이동하기</h3>
+                    <img src="images/1.jpg">
+                </div>
+            </a>
+        </li>
     </ul>
 
 
@@ -81,7 +93,7 @@
         <select name="birth" id="birth">
             <optgroup label="1990~">
                 <option>선택</option>
-                <option>1990</option>
+                <option selected>1990</option>
                 <option>1991</option>
                 <option>1992</option>
                 <option>1993</option>
