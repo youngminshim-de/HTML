@@ -43,12 +43,19 @@
     </div>
     
 
-    <script>
+    <script>// querySelector Vs getElementById
+            // querySelector 와 getElementById 의 차이는 일단 q.s는 객체까지 선택가능 id, class, obj ...
+            // But getElementById는 only ID 속성만 가지고 접근할 수 있다.
+            // 속도 getElementBy > querySelector
+            // q.s = NodeList return // g.E = HTMLCollection return <- 이건 아직 뭔지 모르겠음..
+            // HTMLCollection name,id 속성으로 접근가능
+            // NodeList 는 index 번호로만 접근가능
     
         function add()
         {
             //html 영역의 변수를 가져오기 id값을 통해 .value로 접근
             // 값을 읽어올때는 value 를통해 value의 반환값은 default가 string / int로 강제 형변환
+
             var a = parseFloat(document.querySelector("#num1").value);
             var b = parseFloat(document.querySelector("#num2").value);
             var result = a+b;
