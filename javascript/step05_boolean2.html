@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>step05_boolean2.html</title>
+</head>
+<body>
+    <h1>Boolean Type Test</h1>
+    <p id="info"></p>
+    <script>
+        let isMan = confirm("남자이면 확인을 누르세요");
+
+        if(isMan){
+            document.querySelector("#info").innerText = "당신은 남자이군요!"
+        }
+        else{
+            document.querySelector("#info").innerText = "당신은 여자이군요!"
+        }
+    </script>
+    
+</body>
+</html>
