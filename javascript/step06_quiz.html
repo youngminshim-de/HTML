@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>step06_quiz.html</title>
+</head>
+<body>
+    <h1>Array Quiz</h1>
+    <input type="text" name="inputName" id="inputName" placeholder="이름입력...">
+    <button onclick="saveToArray();">배열에 저장하기</button>
+    <button onclick="printToConsole();">콘술에 출력하기</button>
+    <button onclick="printToList();">저장된 내용 list 출력하기</button>
+
+    <div id="myDiv">
+        <ul id="nameList">
+
+        </ul>
+    </div>
+
+
+    <script>
+        let names=[];
+        //let cnt=0;
+        function saveToArray(){
+            names.push(document.querySelector("#inputName").value);
+            document.querySelector("#inputName").focus();
+           // names[cnt++]=document.querySelector("#inputName").value
+            alert(document.querySelector("#inputName").value + " 이 저장되었습니다.");
+        }
+        function printToConsole(){
+            for(let i=0; i<names.length; i++){
+                console.log(names[i]);
+               // (document.createElement("li").innerText = names[i]); // <li>이름</li>
+                
+            }
+        }
+        function printToList(){
+            document.querySelector("#nameList").innerText=""; // 지우고 출력하기..
+            for(let i=0; i<names.length; i++){
+                var list = document.createElement("li") ;
+                list.innerText = names[i];
+                document.querySelector("#nameList").append(list);
+            }
+         }
+  
+            
+
+        
+    </script>
+    
+    
+</body>
+</html>
