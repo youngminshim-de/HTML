@@ -36,17 +36,15 @@
             }
         }
         function printToList(){
-            document.querySelector("#nameList").innerText=""; // 지우고 출력하기..
+            document.querySelector("#nameList").innerText=""; // 지우고 출력하기.. nameList는 ul 이므로 ul 아래 다지우는거지.. <li>가몇개있던..
             for(let i=0; i<names.length; i++){
-                var list = document.createElement("li") ;
-                list.innerText = names[i];
-                document.querySelector("#nameList").append(list);
+                var list = document.createElement("li") ; // list = <li></li> object type 됨
+                list.innerText = names[i]; // 거기에 innerText를 써넣으니 list = <li>name</li> 이 된다.
+                // var list = (document.createElement("li").innerText = names[i]) 와같이 할 경우 결국 list는 names[i] 즉 string type이 된다.
+
+                document.querySelector("#nameList").append(list); // nameList 즉 <ul> </ul> 사이에 append(끼워넣게된다.)
             }
          }
-  
-            
-
-        
     </script>
     
     
