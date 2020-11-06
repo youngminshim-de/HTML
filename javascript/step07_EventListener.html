@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>step07_EventListener.html</title>
+    <style>
+        .box{
+            width: 100px;
+            height: 100px;
+            background-color: yellow;
+            border: 2px solid skyblue;
+            border-radius: 10%;
+        }
+    </style>
+</head>
+<body>
+    <h1>EventListener Test</h1>
+    <button onclick="clicked();">click</button>
+    <button id="myBtn">click2</button>
+    <div class="box" id="myDiv"></div>
+    <div class="box" id="myDiv2"></div>
+
+    <script>
+        function clicked(){
+            alert("함수를 이용한 버튼");
+        }
+        // ID가 myBtn인 요소에서 "click"이라는 event가 일어날 경우 function을 실행한다.
+        // 이때 addEventListener 안의 function을 call back function이라 한다.
+        document.querySelector("#myBtn").
+        addEventListener("click",function(){
+            
+            alert("addEventListener");
+        });
+
+        document.querySelector("#myDiv").
+        addEventListener("click",function(){
+            this.innerText = "clicked";
+            //document.querySelector("#myDiv").innerText = "clicked"; this 로 대체가능
+        });
+
+        document.querySelector("#myDiv2").
+        addEventListener("mouseover", function(){
+            this.innerText = "mouseover";
+            // append 의 경우 ul 밑에 <li>innerText</li> 로 해야되니 사용했지만,
+            // 이경우는 button 안에 그냥 쓰면 되니 .innerText 이용하는 편이 맞지
+            //document.querySelector("#myDiv2").append("mouseover");
+        });
+    </script>
+    
+</body>
+</html>

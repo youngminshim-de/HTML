@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>step07_quiz.html</title>
+    <style>
+        .box{
+            width: 200px;
+            height: 100px;
+            background-color: skyblue;
+            border: 1px solid yellowgreen;
+            border-radius: 20%;
+            float: left;
+        }
+    </style>
+</head>
+<body>
+    <h1>EventListener Quiz</h1>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <script>
+        // let nums = document.querySelectorAll("div");
+        // nums.forEach(function(value, index){
+        //     nums[index].addEventListener("click", function(){
+        //         this.innerText = "click!" + index;
+        //     })
+        // });
+
+        // for문 사용
+        // for(let i=0; i<document.querySelectorAll("div").length; i++){
+        //     document.querySelectorAll("div")[i].
+        //     addEventListener("click",function(){
+        //         this.innerText = "Click! " + i;
+        //     });
+        // }
+
+        // forEach 구문, 일단 loading이 되면 개수만큼 다만드는거야 addEventListener를 순서대로 div[0]~div[19]
+        // 그리고 그중에 선택이 되면 출력하는거지
+        // 즉 버튼에 대한 eventlistener를 20개를 만들어 놓은거야
+   
+        (function(){
+            let divs = document.querySelectorAll("div");
+            divs.forEach(function(value, index){
+            divs[index].addEventListener("click", function(){
+                this.innerText = "Click! " +index ; 
+            });
+        });
+        })();
+
+        (function(){
+            
+        })();
+    </script>
+    
+</body>
+</html>

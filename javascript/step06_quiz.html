@@ -11,6 +11,7 @@
     <button onclick="saveToArray();">배열에 저장하기</button>
     <button onclick="printToConsole();">콘술에 출력하기</button>
     <button onclick="printToList();">저장된 내용 list 출력하기</button>
+    <button onclick="printToList2();">저장된 내용 list 출력하기 (forEach Ver)</button>
 
     <div id="myDiv">
         <ul id="nameList">
@@ -31,12 +32,11 @@
         function printToConsole(){
             for(let i=0; i<names.length; i++){
                 console.log(names[i]);
-               // (document.createElement("li").innerText = names[i]); // <li>이름</li>
-                
             }
         }
         function printToList(){
             document.querySelector("#nameList").innerText=""; // 지우고 출력하기.. nameList는 ul 이므로 ul 아래 다지우는거지.. <li>가몇개있던..
+
             for(let i=0; i<names.length; i++){
                 var list = document.createElement("li") ; // list = <li></li> object type 됨
                 list.innerText = names[i]; // 거기에 innerText를 써넣으니 list = <li>name</li> 이 된다.
@@ -45,6 +45,16 @@
                 document.querySelector("#nameList").append(list); // nameList 즉 <ul> </ul> 사이에 append(끼워넣게된다.)
             }
          }
+         // forEach() Version
+         function printToList2(){
+            document.querySelector("#nameList").innerText=""; 
+            
+            names.forEach(function(name){
+                var list = document.createElement("li") ;
+                list.innerText = name; // index를 굳이 사용할 필요 없이 현재의 value를 가르키고 있으므로 그냥 사용하면 됨
+                document.querySelector("#nameList").append(list);
+            })
+        }
     </script>
     
     
