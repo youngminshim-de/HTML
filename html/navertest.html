@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Naver SignUp</title>
+    <link rel="stylesheet" href="navercss.css">
+</head>
+<body>
+    <header class="header">
+        <h1>
+            <a href="#" class="logo">
+                NAVER
+                <span class="blind">회원가입</span>
+            </a>
+        </h1>
+    </header>
+
+<main class="main">
+    <form action="login.jsp" method="POST" name="signup" class="form">
+        <fieldset>
+            <legend>회원가입 폼</legend>
+
+            <ul class="container">
+                <li class="row">
+                    <div class="input-area">
+                        <label for="id" class="blind">아이디</label>
+                        <input type="text" placeholder="아이디" id="id" required>
+                    </div>
+                    <span class="icon-area">@naver.com</span>
+                </li>
+                <li class="row">
+                    <div class="input-area">
+                        <label for="password" class="blind">비밀번호</label>
+                        <input type="password" placeholder="비밀번호" id="password" required>
+                    </div>
+                    <i class="material-icons icon-area">locks</i>
+                </li>
+                <li class="row">
+                    <div class="input-area">
+                        <label for="password-recheck" class="blind">비밀번호 재확인</label>
+                        <input type="password" placeholder="비밀번호 재확인" name="password-recheck" id="password-recheck" required>
+                    </div>
+                    <i class="material-icons icon-area">locks</i>
+                </li>
+            </ul>
+
+            <ul class="container">
+                <li class="row name-area">
+                    <label for="name" class="blind">이름</label>
+                    <input type="text" placeholder="name" name="name" id="name" required>
+                </li>
+
+                <li class="row">
+                    <div class="btn-group">
+                        <div class="btn-item">
+                            <label for="male">남자</label>
+                            <input type="radio" name="sex" id="male" value="male" class="blind" required>
+                        </div>
+                        <div class="btn-item">
+                            <label for="female">여자</label>
+                            <input type="radio" name="sex" id="female" value="female" class="blind" required>
+                        </div>
+                    </div>
+                </li>
+                <li class="row birth-area">
+                    <div class="title-area">
+                        <span>생일</span>
+                    </div>
+                    <div class="input-area">
+                        <div>
+                            <label for="birth-year" class="blind">년</label>
+                            <input type="number" id="birth-year" placeholder="년(4자)" min="1900" max="2020" required/>
+                        </div>
+
+                        <div>
+                            <select>
+                                <option value="" selected disabled>월</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                                <option value="6">6</option>
+                                <option value="7">7</option>
+                                <option value="8">8</option>
+                                <option value="9">9</option>
+                                <option value="10">10</option>
+                                <option value="11">11</option>
+                                <option value="12">12</option>
+                            </select>
+                        </div>
+            
+                        <div>
+                            <label for="birth-day" class="blind">일</label>
+                            <input type="number" name="birth-day" id="birth-day" placeholder="일" min="1" max="31" required>
+                        </div>
+                    </div>
+                </li>
+                <li class="row email-area">
+                    <label for="email" class="blind">본인확인 이메일(선택)</label>
+                    <input type="text" placeholder="본인확인 이메일(선택)" name="email" id="email">
+                </li>
+            </ul>
+
+            <ul class="con">
+                <li class="row tel-area">
+                    <div class="input-area">
+                        <label for="national-num">국가번호</label>
+                        <select name="national-num" id="national-num">
+                            <option value="" selected disabled>국가번호</option>
+                            <option value="82">+82</option>
+                        </select>
+                    </div>
+                    <div class="input-area">
+                        <label for="phonenum">휴대전화번호</label>
+                        <input type="tel" placeholder="휴대전화번호" name="phonenum" id="phonenum" required>
+                    </div>
+                    <div class="button-area">
+                        <button type="button" class="btn btn-default">인증</button>
+                    </div>
+                </li>
+                <li class="row">
+                    <div class="input-area">
+                        <label for="auth-number" class="blind">인증번호</label>
+                        <input type="text" placeholder="인증번호"name="auth-number" id="auth-number" required>
+                    </div>
+                    <div class="button-area">
+                        <button type="button" class="btn btn-default">인증</button>
+                    </div>
+                </li>
+            </ul>
+
+            <button text="button" type="submit" class="btn btn-submit">
+                <i class="material-icons">done</i>
+                <span class="submit-text">가입하기</span>
+            </button>
+        </fieldset>
+    </form>
+</main>
+<footer class="footer">
+    <p>&copy; NAVER Corp.</p>
+</footer>
+    
+</body>
+</html>
