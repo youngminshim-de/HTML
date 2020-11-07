@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>R_DrawPannel.html</title>
+    <style>
+        .myDiv{
+            font-size: medium;
+        }
+        #myCanvas{
+            border: 3px solid black;
+            cursor: crosshair;
+
+        }
+    </style>
+    
+</head>
+<body>
+    <h1>그림판 만들기</h1>
+    <button id="btn_erase">지우개</button>
+    <div id="myDiv"></div>
+    <canvas id="myCanvas" width="500" height="500"></canvas>
+    <br>
+    <label for="selectedColor">Color</label>
+    <input type="color" id="selectedColor">
+    <label for="selectedWidth">Width</label>
+    <input type="text" id="selectedWidth" placeholder="선 굵기입력">
+    
+    <script>
+        let canvas = document.querySelector("#myCanvas");
+        let context = canvas.getContext("2d");
+        let color = "black";
+        let width = 10;
+        let isDrawing = false;
+        let isErasing = false;
+
+        context.lineCap ="round";
+        context.lineJoin="round";
+
+        document.querySelector("#btn_erase").addEventListener("click", function(){
+            if(isErasing){
+                isErasing=false;
+                color = "white";
+            }
+            else{
+                isErasing=true;
+                color = "black";
+            }
+        });
+
+        document.querySelector("#selectedColor").addEventListener("change", function(){
+            color = this.value;
+        });
+        document.querySelector("#selectedWidth").addEventListener("change", function(){
+            width = this.value;
+
+        });
+        
+        canvas.addEventListener("mousemove", function(event){
+            //console.log(event); // console 창에서 event 확인
+            document.querySelector("#myDiv").innerText = `x좌표 : ${event.offsetX}, y좌표 : ${event.offsetY}`;
+            if(isDrawing){
+            
+                context.strokeStyle= color;
+                context.lineWidth=width;
+
+                let x = event.offsetX;
+                let y = event.offsetY;
+                context.lineTo(x,y);
+                context.stroke();
+            }
+        });
+
+        canvas.addEventListener("mousedown", function(event){
+            isDrawing = true;
+            if(isDrawing){
+                let x = event.offsetX;
+                let y = event.offsetY;
+
+                context.beginPath();
+                context.moveTo(x,y);
+            }
+        });
+
+        canvas.addEventListener("mouseup", function(){
+            isDrawing = false;
+            context.closePath();
+
+        });
+    </script>
+</body>
+</html>
