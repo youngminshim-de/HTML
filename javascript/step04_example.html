@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>step04_example.html</title>
+</head>
+<body>
+    <div>div1</div>
+    <div>div2</div>
+    <div>div3</div>
+    <div>div4</div>
+    <div>div5</div>
+    <button onclick="change();">바꾸기</button>
+
+    <script>
+        function change(){
+            document.querySelectorAll("div")[0].innerText = "div1 변경"; 
+
+            let qsa = document.querySelectorAll("div");
+
+            qsa[1].innerText = "div2 변경";
+            qsa[1].style.color="red";
+            qsa[2].innerText = "div3 변경";
+            qsa[2].style.color="yellow"
+            qsa[3].innerHTML = "div4 변경";
+            qsa[3].style.color = "blue";
+            qsa[4].innerText = "div5 변경";
+            qsa[4].style.color = "green";
+        }
+
+
+    </script>
+    
+</body>
+</html>

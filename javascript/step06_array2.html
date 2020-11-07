@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>step06_array2.html</title>
+
+
+</head>
+<body>
+    <h1>Array Type Test</h1>
+    <button onclick="printNames();">이름 출력하기</button>
+    <script>
+        let names = ["김구라","유재석","강호동","이수근","신동엽"];
+
+        function printNames(){
+            for(let i=0; i<names.length; i++){
+                document.write('<p>' + names[i] + '</p>');
+                console.log(names[i]);
+            }
+        }
+    </script>
+</body>
+</html>

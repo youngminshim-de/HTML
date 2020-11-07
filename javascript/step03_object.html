@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>step03_object.html</title>
+
+</head>
+<body>
+    <h1>Plain Object Test</h1>
+    <script>
+        /*
+            plain object type (순수 object)
+            - 객체 literal {} 을 이용해서 만들 수 있다.
+            - {key1:value, key2:value2, ...}와 같은 형식으로 만든다.
+            - 키값으로 관리되는 순서가 중요하지 않은 데이터를 저장한다.
+        */
+        /*
+            Stack 영역 : 변수저장
+            Heap 영역 : object type(참조변수)
+            
+        */
+        // 회원 한명을 정보를 plain object에 담고 참조값을 mem3라는 변수에 담기
+        var mem3 = {num:1, name:"김구라", addr:"노량진"};
+        var mem4 = {};
+        //mem3에 들어있는 참조값을 mem4 라는 변수에 복사하기. 즉 같은 참조값을 가짐
+        //같은 곳을 가리킴 (deep copy)
+        mem4=mem3;
+        mem3.name="개구라";
+        var c = mem3.name;
+        var d = mem4.name
+
+        console.log(c);
+        console.log(d);
+
+        var mem1 = {num:1, name:"김구라", addr:"노량진"};
+        var mem2 = {};
+        
+        // shallow copy (heap영역에 object 안에 있는 name의 값을 복사해와 stack 영역에 저장)
+        mem2.name=mem1.name; 
+        
+        mem1.name="개구라";
+        var a = mem1.name;
+        var b = mem2.name;
+        console.log(a);
+        console.log(b);
+
+        function dr(){
+            alert(this.name+" 이(가) 달려요");
+        }
+
+        var car1 ={
+            name:"소나타", 
+            color:"silver", 
+            // 호출이 아니라 참조를 해야지!! dr() x // dr o
+            drive:dr  // dr 은 참조 dr() 호출 이게좀헷갈리네 java, c랑 좀 다른데
+        };
+        var car2 ={
+            name:"BMW 520d",
+            color:"white", 
+            drive:function(){
+                alert(this.name+" 이(가) 달려요");
+            }
+        };
+        var car3 = {
+            name:"Bentz E-class", 
+            color:"gray", 
+            drive:function(){
+                alert(this.name+" 이(가) 달려요");
+            }
+        };
+        var car4 = {};
+
+        car4.name="Genesis G70";
+        car4.color="black";
+        car4.drive=function(){
+                alert(this.name+" 이(가) 달려요");
+            };
+    </script>
+    
+</body>
+</html>

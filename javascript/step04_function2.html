@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>step04_function2.html</title>
+</head>
+<body>
+    <h1>function 매개변수</h1>  
+    <table>
+        <tr>
+            <td><label for="inputName">이름</label></td>
+            <td><input type="text" id="inputName" placeholder="이름" required></td>
+        </tr>
+        <tr>
+            <td><label for="inputPw">비밀번호</label></td>
+            <td><input type="text" id="inputPw" placeholder="비밀번호" required></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td><button id="btn" onclick="enter();" value="1">입장하기</button></td>
+        </tr>
+    </table>
+    
+    
+    <script>
+        //page가 loading 되는 시점 해당 태그에 focusing 된다. 선택되고 깜빡인다.
+        //document.querySelector("#inputName").focus();
+        function enter(){
+        
+            welcome(document.querySelector("#inputName").value);
+            welcome2(document.querySelector("#inputName").value);
+
+            // 선택한 id값을 가진 요소의 data를 지우고 싶을때
+            if(document.querySelector("#btn").value==1)
+            {
+                document.querySelector("#btn").innerText = "입장했음";
+                document.querySelector("#btn").value=0
+            }
+            else
+            {
+                document.querySelector("#btn").innerText = "입장wewe";
+                document.querySelector("#btn").value=1
+                
+            }
+            
+        }
+        function welcome(arg){
+            alert(arg + "님 안녕하시렵니까");
+        }
+
+        var welcome2 = function(arg){
+            alert(arg + "님 안녕하시렵니까")
+        };
+    </script>
+    
+</body>
+</html>

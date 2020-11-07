@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>step07_DrawPannel.html</title>
+
+    <style>
+        #myCanvas{
+            border: 3px solid black;
+            cursor: crosshair;
+        }
+
+    </style>
+</head>
+<body>
+    <h1>그림판 만들기</h1>
+    <button id="btn-erase">지우개</button>
+    <div id="myDiv"></div>
+        <canvas id="myCanvas" width="500px" height="500px">
+        </canvas>
+        <br>
+        <label for="selectedColor">색상</label>
+        <input type="color" id="selectedColor" name="selectedColor">
+        <label for="selectedWidth">굵기</label>
+        <input type="text" id="selectedWidth" name="selectedWidth" placeholder="굵기입력..">
+    
+    <script>
+        let canvas = document.querySelector("#myCanvas");
+        let context = canvas.getContext("2d");
+        let color = "black"; // default black
+        let width = 10; // default linewidth
+        let isDrawing=false;
+        let isErasing=false;
+
+        context.lineWidth = width;
+        context.lineCap="round"; // 시작과 끝을 둥글게
+        context.lineJoin="round"; // 선이 만나는 점 설정
+        context.strokeStyle=color; // 색깔
+
+        // 색깔변경, event는 change임을 유의!
+        document.querySelector("#selectedColor")
+            .addEventListener("change", function(){
+                color = this.value;
+        });
+        document.querySelector("#selectedWidth")
+            .addEventListener("change", function(){
+                width = this.value;
+        });
+
+        // 지우개, 글자색을 white로 하여 지울수 있도록 하였다. 다시 입력으로 바꿀시 색상은 default black
+        document.querySelector("#btn-erase").addEventListener("click",function(){
+            if(isErasing==false){
+                isErasing = true;
+            }
+            else{
+                isErasing = false;
+                color="black";
+            }
+        });
+
+        canvas.addEventListener("mousemove",function(event){
+            // 그냥 좌표표시
+            document.querySelector("#myDiv").innerText
+                = `X좌표 : ${event.offsetX} Y좌표 : ${event.offsetY}`;
+
+            if(isDrawing){
+                    let x = event.offsetX;
+                    let y = event.offsetY;
+                    context.lineTo(x,y);
+                    context.stroke();
+            }
+        });
+        canvas.addEventListener("mousedown", function(event){
+            isDrawing = true;
+            if(isDrawing){
+                // isErasing이 True 이면 글자색을 white로 바꾼다.
+                if(isErasing){
+                    color = "white";
+                }
+                let x = event.offsetX;
+                let y = event.offsetY;
+                
+                context.strokeStyle=color;
+                context.lineWidth = width;
+                context.beginPath();
+                context.moveTo(x,y);
+            }
+        });
+        canvas.addEventListener("mouseup", function(event){
+            isDrawing = false;
+            context.closePath();
+        });
+    
+        // context.beginPath();
+        // context.moveTo(100,100); 시작점
+        // context.lineTo(200,200); 이동점
+        // context.lineTo(200,100);
+        // context.lineTo(100,100);
+        // context.stroke(); // 그리기
+        // context.closePath();
+    </script>
+    
+</body>
+</html>

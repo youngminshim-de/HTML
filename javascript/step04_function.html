@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>step04_function.html</title>
+
+    <style>
+        .btn_group{
+            display: flex;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <h1>function 사용법</h1>
+    <div class="btn_group">
+        <div class="btn_item">
+            <button id="btn_beer" onclick="keepBeer();">맥주 보관하기</button>
+        </div>
+        <div class="btn_item">
+            <button id="btn_beer2" onclick="keepBeer2();">맥주 보관하기</button>
+        </div>
+        <div class="btn_item">
+            <button id="btn_beer3" onclick="person.keepBeer();">맥주 보관하기</button>
+        </div>
+    </div>
+
+    <script>
+        /*
+            function type
+            - 특정 시점에 일괄 실행할 javascript를 모아 놓는 역할을 한다.
+            - 함수도 heap 영역에 저장되어지는 일종의 object(객체) 이다.
+            - 함수를 호출하면서 값이 필요할 시 전달할 수도 있다. (매개변수)
+            - 함수를 호출하면 반드시 어떤 값을 해당위치로 return 해 준다.
+        */
+
+        // 1. 함수 직접 만들기
+        function keepBeer(){
+            console.log("냉장고 문을 연다.");
+            console.log("맥주를 넣는다.");
+            console.log("냉장고 문을 닫는다.");
+            document.querySelector("#btn_beer").innerText = "보관완료!";
+        }
+
+        // 2. 익명의 함수를 만들어서 keepBeer2라는 변수를 통해 참조
+        // 2번방법을 더 선호한다. why?
+        var keepBeer2 = function(){
+            console.log("냉장고 문을 연다.");
+            console.log("맥주를 넣는다.");
+            console.log("냉장고 문을 닫는다.");
+            document.querySelector("#btn_beer2").innerText = "보관완료!";
+        };
+
+        // 3. object안에 들어간 형태의 함수
+        var person={
+            name:"김구라",
+            keepBeer:function(){
+                console.log("냉장고 문을 연다.");
+                console.log("맥주를 넣는다.");
+                console.log("냉장고 문을 닫는다.");
+                document.querySelector("#btn_beer3").innerText = "보관완료!";
+            }
+        };
+
+    </script>
+    
+</body>
+</html>

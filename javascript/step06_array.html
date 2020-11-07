@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>step06_array.html</title>
+</head>
+<body>
+    <h1>Array Type Test</h1>
+
+    <script>
+        /*
+            Array Type(배열)
+            - 순서가 중요한 데이터를 담는다.
+            - 대괄호 [] literal을 이용해서 만들 수 있다.
+            - 0부터 시작해서 1씩 증가하는 인덱스가 자동 부여된다.
+            - Array도 Object 안에 포함된다.
+        */  
+        let nums=[1,2,3,4];
+        let names=["심영민", "허민수", "김시언"];
+        let friends=[];
+        friends.push("dog");
+        friends.push("cat");
+        friends.push("elephant");
+
+        let size1 = nums.length;
+        let size2 = names.length;
+        let size3 = friends.length;
+        
+        nums.push(5); // data 집어넣고, size를 return
+        nums.pop(); // data 삭제 맨뒤에서부터, size를 return
+        nums.reverse();
+        nums.slice(0,5); // (시작,개수) 0번째부터 5개를 return한다
+        nums.splice(4,1); // 4번째부터 1개 즉(시작숫자, 개수)
+        // 배열의 내용을 다 지우고 싶을때는 nums.length=0; 하면 다지워진다 오호 굿
+        
+        
+        //concat 을 이용해 array를 합친다. con = [1,2,3,4,"심영민","허민수","검시언"]
+        let con = nums.concat(names);
+        for(let i=0; i<con.length; i++){
+            document.write('<p>' + con[i] + '</p>');
+        }
+
+    </script>
+    
+</body>
+</html>

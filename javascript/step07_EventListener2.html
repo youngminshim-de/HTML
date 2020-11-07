@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>step07_EventListener.html</title>
+    <style>
+        .wrapper{
+            width: 500px;
+            height: 500px;
+            border: 2px dashed red;
+            cursor: crosshair;
+        }
+    </style>
+</head>
+<body>
+    <h1>EventListener EventListener</h1>
+    <div class="wrapper" id="myDiv"></div>
+
+    <script>
+        // addEventListener 는 event 정보를 리턴한다
+        // 그정보가 필요하다면 매개변수를 이용하여 (event) 정보를 가져다 쓰면 된다. 
+        document.querySelector("#myDiv")
+            .addEventListener("mousemove", function(event){
+                console.log("mousemove!");
+                console.log(event);
+                let info = `x 좌표 : ${event.offsetX} y 좌표 : ${event.offsetY}`;
+                this.innerText = info;
+        });
+    </script>
+    
+</body>
+</html>

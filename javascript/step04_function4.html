@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>step04_function4.html</title>
+</head>
+<body>
+    <script>
+
+        function a(){
+            console.log("a() 함수 호출됨");
+        }
+
+        function b(){
+            console.log("b() 함수 호출됨");
+            return 10;
+        }
+        function c(){
+            console.log("c() 함수 호출됨");
+            return "shim";
+        }
+        function d(){
+            console.log("d() 함수 호출됨");
+            let obj = {num:1,name:"심영민",addr:"봉천동"};
+            return obj;
+        }
+        function e(){
+            console.log("e() 함수 호출됨");
+            let array=[1, 2, 3, 4];
+            return array;
+        }
+        function getData(){
+            let data=[
+                {num:1, name:"SONATA", color:"Silver"},
+                {num:2, name:"520d", color:"white"},
+                {num:3, name:"E-class", color:"gray"}
+            ];
+            return data;
+        }
+
+        var mem1 = d();
+        var mem2 = d();
+
+        if(mem1==mem2)
+        {
+            console.log(true);
+        }
+        else
+        {
+            console.log(false);
+        }
+
+    </script>
+    
+</body>
+</html>
