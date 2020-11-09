@@ -6,44 +6,81 @@
     <title>step07_DrawPannel.html</title>
 
     <style>
+        h1{
+            text-align: center;
+        }
         #myCanvas{
-            border: 3px solid black;
+            border: 2px dashed black;
             cursor: crosshair;
+        }
+        #selectedBox{
+            width: 500px;
         }
 
     </style>
 </head>
 <body>
-    <h1>그림판 만들기</h1>
-    <button id="btn-erase">지우개</button>
+    <h1>그림판</h1>
+    
     <div id="myDiv"></div>
         <canvas id="myCanvas" width="500px" height="500px">
         </canvas>
         <br>
-        <label for="selectedColor">색상</label>
-        <input type="color" id="selectedColor" name="selectedColor">
-        <label for="selectedWidth">굵기</label>
-        <input type="text" id="selectedWidth" name="selectedWidth" placeholder="굵기입력..">
+        <fieldset id = "selectedBox">
+            <legend style="text-align: center;">도구상자</legend>
+            <button id="btn-erase">지우개</button>
+            <label for="selectedColor">색상</label>
+            <input type="color" id="selectedColor" name="selectedColor">
+            <label for="selectedBColor">배경색상</label>
+            <input type="color" id="selectedBColor" name="selectedBColor">
+            <label for="selectedLineWidth">굵기</label>
+            <!-- <input type="text" id="selectedWidth" name="selectedWidth" placeholder="굵기입력.."> -->
+            <select name="selectedLineWidth" id="selectedLineWidth">
+                <option value=""selected disabled>선택</option>
+                <option value="10">10</option>
+                <option value="20">20</option>
+                <option value="30">30</option>
+                <option value="40">40</option>
+                <option value="50">50</option>
+                <option value="60">60</option>
+                <option value="70">70</option>
+                <option value="80">80</option>
+                <option value="90">90</option>
+                <option value="100">100</option>
+            </select>
+        </fieldset>
     
     <script>
         let canvas = document.querySelector("#myCanvas");
-        let context = canvas.getContext("2d");
+        let context = canvas.getContext("2d"); // 그림그리기 도구 canvas.getContext("2d") 2d는 2차원을 뜻함
         let color = "black"; // default black
         let width = 10; // default linewidth
         let isDrawing=false;
         let isErasing=false;
+        let background_color = "#ffffff"; // 배경색 default 는 white
 
         context.lineWidth = width;
         context.lineCap="round"; // 시작과 끝을 둥글게
         context.lineJoin="round"; // 선이 만나는 점 설정
         context.strokeStyle=color; // 색깔
 
+        context.fillStyle = background_color; // 채울색 설정
+        context.fillRect(0,0,500,500); // 사각형을 그리는 함수 (x start, y start, x width, y height)
+
+        document.querySelector("#selectedBColor")
+        .addEventListener("change", function(){
+            background_color = this.value;
+            context.fillStyle = background_color;
+            context.fillRect(0,0,500,500);
+        });
+
         // 색깔변경, event는 change임을 유의!
         document.querySelector("#selectedColor")
-            .addEventListener("change", function(){
-                color = this.value;
+        .addEventListener("change", function(){
+            color = this.value;
+            isErasing=false;
         });
-        document.querySelector("#selectedWidth")
+        document.querySelector("#selectedLineWidth")
             .addEventListener("change", function(){
                 width = this.value;
         });
@@ -55,7 +92,8 @@
             }
             else{
                 isErasing = false;
-                color="black";
+                document.querySelector("#selectedColor").value = "#000000"; //black
+                color="#000000"; // black
             }
         });
 
@@ -76,15 +114,16 @@
             if(isDrawing){
                 // isErasing이 True 이면 글자색을 white로 바꾼다.
                 if(isErasing){
-                    color = "white";
+                    color = "#ffffff";
                 }
+                
                 let x = event.offsetX;
                 let y = event.offsetY;
                 
-                context.strokeStyle=color;
-                context.lineWidth = width;
-                context.beginPath();
-                context.moveTo(x,y);
+                context.strokeStyle=color; // 색깔지정 default black
+                context.lineWidth = width; // 굵기지정 default 10
+                context.beginPath(); // 그리기 시작
+                context.moveTo(x,y); // 최초 좌표
             }
         });
         canvas.addEventListener("mouseup", function(event){
