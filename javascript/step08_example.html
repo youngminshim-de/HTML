@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>step08_example.html</title>
+</head>
+<body>
+    <h1>논리 연산자 테스트 예제</h1>
+    <input type="text" id="height" placeholder="키를 입력하세요...">
+    <input type="text" id="weight" placeholder="몸무게를 입력하세요...">
+    <button id="btn_check">놀이 기구를 탈 수 있는지 확인하기</button>
+    <p id="result"></p>
+
+    <script>
+        /*
+            키 150 이상, 몸무게 100 미만을 기준으로 놀이기구 탑승 유무를 출력하라 
+        */
+        
+        document.querySelector("#btn_check")
+            .addEventListener("click", function(){
+                let height = document.querySelector("#height").value;
+                let weight = document.querySelector("#weight").value;
+
+                if(height >=150 && weight < 100){
+                    document.querySelector("#result").innerText = "탑승가능";
+                    //document.querySelector("#result").style.backgroundImage="url(images/1.jpg)";
+                }
+                else{
+                    document.querySelector("#result").innerText = "탑승불가";
+                }
+            });
+    </script>
+    
+</body>
+</html>

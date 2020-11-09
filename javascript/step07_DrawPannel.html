@@ -28,7 +28,11 @@
         <br>
         <fieldset id = "selectedBox">
             <legend style="text-align: center;">도구상자</legend>
-            <button id="btn-erase">지우개</button>
+            <button id="btn_erase">지우개</button>
+            <!-- <label for="btn_erase">지우개</label> -->
+            <!-- <input type="checkbox" name="btn_erase" id="btn_erase"> -->
+            <!-- checkbox의 경우 document.querySelector("#brn_erase").checked 를 사용하면 true or false return한다. -->
+            <!-- 즉 this.checked 로 true or false 선택가능!  -->
             <label for="selectedColor">색상</label>
             <input type="color" id="selectedColor" name="selectedColor">
             <label for="selectedBColor">배경색상</label>
@@ -65,65 +69,79 @@
         context.strokeStyle=color; // 색깔
 
         context.fillStyle = background_color; // 채울색 설정
-        context.fillRect(0,0,500,500); // 사각형을 그리는 함수 (x start, y start, x width, y height)
+        context.fillRect(0,0,500,500); // 사각형을 그리는 함수 (x start, y start, width, height)
 
         document.querySelector("#selectedBColor")
-        .addEventListener("change", function(){
-            background_color = this.value;
-            context.fillStyle = background_color;
-            context.fillRect(0,0,500,500);
-        });
+            .addEventListener("change", function(){
+                background_color = this.value;
+                context.fillStyle = background_color;
+                context.fillRect(0,0,500,500);
+            });
 
         // 색깔변경, event는 change임을 유의!
         document.querySelector("#selectedColor")
-        .addEventListener("change", function(){
-            color = this.value;
-            isErasing=false;
-        });
+            .addEventListener("change", function(){
+                color = this.value;
+                isErasing=false;
+            });
         document.querySelector("#selectedLineWidth")
             .addEventListener("change", function(){
                 width = this.value;
-        });
+            });
 
-        // 지우개, 글자색을 white로 하여 지울수 있도록 하였다. 다시 입력으로 바꿀시 색상은 default black
-        document.querySelector("#btn-erase").addEventListener("click",function(){
-            if(isErasing==false){
-                isErasing = true;
-            }
-            else{
-                isErasing = false;
-                document.querySelector("#selectedColor").value = "#000000"; //black
-                color="#000000"; // black
-            }
-        });
+        // // 지우개, 글자색을 white로 하여 지울수 있도록 하였다. 다시 입력으로 바꿀시 색상은 default black
+        // document.querySelector("#btn_erase").addEventListener("click",function(){
+        //     if(isErasing==false){
+        //         isErasing = true;
+        //     }
+        //     else{
+        //         isErasing = false;
+        //         document.querySelector("#selectedColor").value = "#000000"; //black
+        //         color="#000000"; // black
+        //     }
+        // });
+        document.querySelector("#btn_erase")
+            .addEventListener("click", function(){
+                if(isErasing==false){
+                    isErasing = true;
+                    document.querySelector("#myCanvas").style.cursor = "pointer";
+                }
+                else{
+                    isErasing = false;
+                }
+            });
 
         canvas.addEventListener("mousemove",function(event){
             // 그냥 좌표표시
             document.querySelector("#myDiv").innerText
                 = `X좌표 : ${event.offsetX} Y좌표 : ${event.offsetY}`;
-
             if(isDrawing){
-                    let x = event.offsetX;
-                    let y = event.offsetY;
+                let x = event.offsetX;
+                let y = event.offsetY;
+                if(isErasing){
+                    context.clearRect(x,y,width,width); // x,y 시작점으로부터 width 만큼
+                }
+                else{
                     context.lineTo(x,y);
                     context.stroke();
+                }
             }
         });
         canvas.addEventListener("mousedown", function(event){
             isDrawing = true;
             if(isDrawing){
                 // isErasing이 True 이면 글자색을 white로 바꾼다.
-                if(isErasing){
-                    color = "#ffffff";
-                }
-                
+                // if(isErasing){
+                //     color = "#ffffff";
+                // }
                 let x = event.offsetX;
                 let y = event.offsetY;
-                
-                context.strokeStyle=color; // 색깔지정 default black
-                context.lineWidth = width; // 굵기지정 default 10
-                context.beginPath(); // 그리기 시작
-                context.moveTo(x,y); // 최초 좌표
+                if(isErasing == false){
+                    context.strokeStyle=color; // 색깔지정 default black
+                    context.lineWidth = width; // 굵기지정 default 10
+                    context.beginPath(); // 그리기 시작
+                    context.moveTo(x,y); // 최초 좌표
+                }
             }
         });
         canvas.addEventListener("mouseup", function(event){
