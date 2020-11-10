@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>step09_createElement.html</title>
+    <style>
+        .my_class{
+            background-color: yellow;
+            color: red;
+            width: 768px;
+            margin: 0 auto;
+        }
+        .one{
+            color: red;
+        }
+        .my_a{
+            color: purple;
+            font-size: 20px;
+        }
+        .my_div{
+            color: black;
+            background-color: skyblue;
+        }
+
+    </style>
+</head>
+<body>
+    <h1>원하는 요소를 동적으로 만들기</h1>
+    <button id="btn_p">p요소 만들기</button>
+    <button id="btn_div">div요소 만들기</button>
+    <button id="btn_a">a요소 만들기</button>
+    <div class="one">
+
+    </div>
+
+    <script>
+        // let element = document.createElement("p");
+        // element.innerText = "p1 요소입니다.";
+
+        // //element.className = "my_class";
+        // element.setAttribute("class", "my_class");
+
+        // document.querySelector(".one").append(element);
+        // //append는 javascript 함수 appendChild는 DOM 함수 -> 무슨차이지?
+        // //append는 문자열 입력 가능 appendChild는 문자열 입력 불가
+        // //document.querySelector(".one").appendChild(element);
+
+        document.querySelector("#btn_p")
+            .addEventListener("click", function(){
+                let p1 = document.createElement("p");
+                p1.innerText = "p 요소입니다.";
+                p1.setAttribute("class", "my_class");
+                document.querySelector(".one").append(p1);
+            });
+
+        document.querySelector("#btn_div")
+            .addEventListener("click", function(){
+                let div1 = document.createElement("div");
+                div1.setAttribute("class", "my_div");
+                div1.innerText = "div 요소입니다.";
+                document.querySelector(".one").append(div1);
+            });
+
+        document.querySelector("#btn_a")
+            .addEventListener("click", function(){
+                let a1 = document.createElement("a");
+                a1.setAttribute("class", "my_a");
+                a1.setAttribute("href","https://naver.com");
+                a1.setAttribute("target", "_blank");
+                a1.innerText = "a 요소입니다 naver 바로가기";
+                document.querySelector(".one").append(a1);
+            });
+
+        
+
+    </script>
+
+    
+</body>
+</html>
