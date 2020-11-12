@@ -14,12 +14,14 @@
 			/* 
 			content-box (default) | border-box 
 			
-			content-box : width 와 height 에 아무것도 포함하지 않음
+			content-box : width 와 height 에 아무것도 포함하지 않음 (width=100)
 
-			border-box : width 와 height 에 padding 과 border 포함
+			border-box : width 와 height 에 padding 과 border 포함 (padding(10*2)+border(10*2)+width(60) = 100)
+
+			border-box 가 크기계산하기가 쉽겠다.
 			
 			*/
-			box-sizing: margin-box;
+			box-sizing: border-box;
 		}
 	</style>
 </head>
