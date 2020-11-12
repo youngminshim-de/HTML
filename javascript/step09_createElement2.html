@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>step09_createElement2.html</title>
+    <style>
+        #one{
+            font-size: 20px;
+            color: rgb(238, 15, 164);
+            background-color: rgb(47, 245, 80);
+        }
+    </style>
+</head>
+<body>
+    <div class="my_div">
+        <h1>반복문 돌면서 요소 만들기</h1>
+        <button id="showBtn">출력하기</button>
+        <h1>친구 목록 입니다.</h1>
+        <ul id="one">
+    
+        </ul>
+    </div>
+
+    <script>
+        /*
+            출력하기 버튼을 누르면
+            아래의 friends 배열에 있는 내용을 순서대로
+            ul 요소에 추가하기
+            단, li 요소를 만들어서 innerText에 이름을 출력하세요.
+        */
+        let friends = ["김구라", "해골", "원숭이", "주뎅이", "덩어리"];
+        document.querySelector("#showBtn")
+            .addEventListener("click", function(){
+                document.querySelector("#one").innerText = "";
+
+                friends.forEach(function(name){
+                    let list = document.createElement("li");
+                    list.innerText = name;
+                    document.querySelector("#one").append(list);
+                })
+
+            });
+    </script>    
+</body>
+</html>
