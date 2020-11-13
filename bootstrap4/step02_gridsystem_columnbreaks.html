@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>step03_gridsystem_columnbreaks.html</title>
+    <link rel="stylesheet" href="./css/bootstrap.css">
+    <style>
+        .container{
+            border: 1px solid red;
+        }
+        .col-4{
+            border: 1px solid blue;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-4 col-sm-3">칼럼</div>
+            <div class="col-4 col-sm-3">칼럼</div>
+            <!-- 강제로 width를 100채워 row를 나눈다. -->
+            <!-- 즉 w-100 아래로는 두번째 row가 된다. -->
+            <div class="w-100"></div>
+            <div class="col-4 col-sm-3">칼럼</div>
+            <div class="col-4 col-sm-3">칼럼</div>
+        </div>
+
+        <div class="row">
+            <div class="col-4 col-sm-3">칼럼</div>
+            <div class="col-4 col-sm-3">칼럼</div>
+            <!-- lg보다 크면 w-100을 보이겠다. 하지만 그보다 작으면 d-none 하겠다 -->
+            <!-- 즉, large보다 작아지면 칼럼들이 한줄로 보인다 -->
+            <div class="w-100 d-none d-lg-block"></div>
+            <div class="col-4 col-sm-3">칼럼</div>
+            <div class="col-4 col-sm-3">칼럼</div>
+
+        </div>
+    </div>
+    
+</body>
+</html>

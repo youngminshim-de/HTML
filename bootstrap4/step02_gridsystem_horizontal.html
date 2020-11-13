@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>step03_gridsystem_horizontal.html</title>
+    <link rel="stylesheet" href="./css/bootstrap.css">
+    <style>
+        .container{
+            border: 1px solid red;
+        }
+        .col-4{
+            border: 1px solid blue;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>수평정렬 테스트</h1>
+
+        <!-- row의 열들을 왼쪽정렬 -->
+        <div class="row justify-content-start">
+            <div class="col-4">column</div>
+            <div class="col-4">column</div>
+        </div>
+
+        <!-- row의 열들을 오른쪽정렬 -->
+        <div class="row justify-content-end">
+            <div class="col-4">column</div>
+            <div class="col-4">column</div>
+        </div>
+
+        <!-- row의 열들을 가운데정렬 -->
+        <div class="row justify-content-center">
+            <div class="col-4">column</div>
+            <div class="col-4">column</div>
+        </div>
+
+        <!-- row의 열들이 lp,rp(왼쪽,오른쪽패딩) 이 같게 정렬 -->
+        <div class="row justify-content-around">
+            <div class="col-4">column</div>
+            <div class="col-4">column</div>
+        </div>
+        <!-- row의 열들의 공간이 생긴다. -->
+        <div class="row justify-content-between">
+            <div class="col-4">column</div>
+            <div class="col-4">column</div>
+        </div>
+    </div>
+    
+</body>
+</html>

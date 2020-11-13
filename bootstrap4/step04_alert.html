@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>step04_alert.html</title>
+    <link rel="stylesheet" href="./css/bootstrap.css">
+</head>
+<body>
+    <div class="container">
+        <h1>알림 스타일(Alert)</h1>
+        <div class="alert alert-success">
+            작업 성공 했습니다.
+        </div>
+        <div class="alert alert-danger">
+            에러가 발생 했습니다.
+            <a href="#" class="alert-link">다시 시도하기</a>
+            <!-- .alert-danger alert-link alert-(x) 클래스마다 상속되어있다 alert-link가 따라서 부모클래스의 색상따라 비슷한 색상을 변경된다.  -->
+        </div>
+
+        <h1>제거 가능한 Alert</h1>
+        <p>
+            아래의 alert 는 BootStrap4 에서 미리 준비된 javascript를
+            이용해서 동작이 되는 alert이다.
+            동작하기 위해서는 jquery 와 bootstrap javascript를 순서대로 로딩하고
+            UI에는 data-xxx="xxx" 속성을 약속된 형식에 맞게 넣어줘야한다.
+        </p>
+        <div class="alert alert-warning alert-dismissible">
+            <strong>Caution!</strong> 컨텐츠가 삭제됩니다.
+            <button class="close" data-dismiss="alert">&times;</button>
+            <!-- $times 는 x표시의 image -->
+        </div>
+
+
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
+    
+</body>
+</html>
